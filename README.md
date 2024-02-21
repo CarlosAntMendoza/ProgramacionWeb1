@@ -1,2 +1,0 @@
-# ProgramacionWeb1
-UPSLP
