@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Universidad Politecnica">
+    <link rel="icon" type="image/png" href="Imagenes/UPSLP.png">
+    <title>Practica 2</title>
+    <style>
+        h1 {
+            color: white;
+        }
+
+        body {
+            background-color: black;
+            text-align: center; /* Centra el contenido en el cuerpo de la página */
+        }
+
+        table {
+            width: 75%;
+            margin: auto; /* Centra la tabla en la página */
+            border-collapse: collapse; /* Elimina los bordes de la tabla */
+        }
+
+        img {
+            max-width: 75%; /* Establece un tamaño máximo del 100% dentro de la tabla */
+            height: auto; /* Mantiene la proporción original de la imagen */
+            cursor: pointer; /* Cambia el cursor al pasar sobre las imágenes */
+        }
+
+        #iframeContainer {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        iframe {
+            max-width: 800px;
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Practica 2</h1>
+    
+    <table>
+        <tr>
+            <td><img src="Imagenes/Imagen 1.webp" alt="Imagen 1" onclick="cambiarFuente('Imagenes/Imagen 1.webp')"></td>
+            <td><img src="Imagenes/Imagen 2.webp" alt="Imagen 2" onclick="cambiarFuente('Imagenes/Imagen 2.webp')"></td>
+            <td><img src="Imagenes/Imagen 3.webp" alt="Imagen 3" onclick="cambiarFuente('Imagenes/Imagen 3.webp')"></td>
+            <td><img src="Imagenes/Imagen 4.webp" alt="Imagen 4" onclick="cambiarFuente('Imagenes/Imagen 4.webp')"></td>
+        </tr>
+    </table>
+
+    <div id="iframeContainer">
+        <iframe id="imagenIframe" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        function cambiarFuente(src) {
+            document.getElementById('imagenIframe').src = src;
+        }
+    </script>
+</body>
+</html>
