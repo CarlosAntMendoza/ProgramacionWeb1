@@ -1,0 +1,48 @@
+/* Estilos generales */
+
+body {
+  font-family: Arial, Helvetica, sans-serif; /* Usar la familia de fuentes importada */
+  display: flex; /* Hacer que el cuerpo ocupe todo el espacio vertical */
+  justify-content: center; /* Centrar horizontalmente los elementos */
+  align-items: center; /* Centrar verticalmente los elementos */
+  height: 100vh; /* Altura del cuerpo igual al 100% de la ventana */
+  margin: 0; /* Eliminar márgenes predeterminados */
+}
+
+.texto {
+  font-size: 24px;
+  padding: 15px 20px; /* Aumentar el espacio de relleno para un aspecto más equilibrado */
+  background-color: yellow; /* Utilizar un tono más suave de amarillo */
+  color: #333; /* Cambiar el color del texto a un tono más oscuro */
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 15px; /* Reducir el radio de borde para una apariencia más suave */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Agregar una sombra para resaltar */
+}
+
+/* Estilos al pasar el mouse sobre el contenedor */
+.texto:hover {
+  background-color: red; /* Color de relleno diferente */
+  font-style: italic; /* Aplicar cursiva */
+  font-family: 'MiFuenteCursiva', Arial, Helvetica, sans-serif; /* Usar la fuente importada */
+  border-radius: 50%; /* Borde radial */
+  transform: rotate(10deg); /* Inclinación */
+}
+
+
+
+/* Estilos al hacer clic en el hipervínculo */
+.enlace:active .texto {
+  background-color: darkcyan; /* Color de relleno diferente */
+  font-style: italic; /* Aplicar cursiva */
+  font-family: 'MiFuenteCursiva', Arial, Helvetica, sans-serif; /* Usar la fuente importada */
+  border-radius: 50%; /* Borde radial */
+  transform: rotate(10deg); /* Inclinación */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3) inset; /* Sombra para simular el efecto de hundimiento */
+}
+
+@font-face {
+  font-family: 'MiFuenteCursiva';
+  src: url('url_de_tu_fuente.ttf') format('truetype');
+}
