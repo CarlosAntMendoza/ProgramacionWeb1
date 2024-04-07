@@ -1,0 +1,78 @@
+/* Reset de estilos */
+* {
+    padding: 0;
+    margin: 0;
+}
+h3 {
+    color: black;
+    padding: 10px;
+    font-family: "Kanit", sans-serif;
+}
+nav ul {
+    background-color: #007CC4;
+    width: 100%;
+    list-style-type: none;
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+}
+nav li {
+    display: inline-flex;
+    font-family: "Kanit", sans-serif;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    width: 220px;
+    font-family: "Kanit", sans-serif;
+}
+nav li:hover {
+    background-color: black;
+}
+footer {
+    position: fixed; /* Hacer el footer estático */
+    bottom: 0; /* Fijar el footer en la parte inferior */
+    width: 100%;
+    max-height: auto; /* Ajustar automáticamente la altura */
+    background-color: #007CC4;
+    color: white;
+    text-align: center; /* Centrar el contenido del footer */
+    font-family: "Kanit", sans-serif;
+}
+footer p {
+    padding: 20px; /* Ajustar el padding para que el texto no esté tan separado del borde */
+}
+.Contenido {
+    font-family: "Kanit", sans-serif;
+}
+
+/* Estilos para el aside "der" */
+#der {
+    background-color: #007CC4;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+    margin-top: 20px;
+}
+
+#der h1 {
+    margin-bottom: 20px;
+}
+
+#der form input[type="text"],
+#der form input[type="password"],
+#der form input[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-family: "Kanit", sans-serif;
+}
+
+/* Estilos para la disposición */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
