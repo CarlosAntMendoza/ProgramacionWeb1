@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="Imagenes/UPSLP.png">
+    <title>Obtener totales del formulario</title>
+    <link rel="stylesheet" href="estilos.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="jspdf.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.from_html.js"></script>	
+</head>
+<script>
+var total;
+function califica()
+    {var total=0;
+        //Evalua cada pregunta
+        for (var x=1;x<=4;x++)
+        {
+        var res=0;
+        var nom="r"+x;
+        var resul=document.getElementsByName(nom);
+        for(var i=0;i<resul.length;i++)
+        {
+            if(resul[i].checked==true)
+                res=parseInt(resul[i].value);
+        }
+        total=total+res;
+        document.getElementById("total").innerHTML="Puntos obtenidos: "+total+" Puntos";
+        }
+        if(total==20)
+            document.getElementById("comentario").innerHTML="EXCELENTE!!!";
+        else
+            if(total==15)
+            document.getElementById("comentario").innerHTML="Regular!!";
+        else
+            if(total<=15)
+            document.getElementById("comentario").innerHTML="Estudia un poco más";
+    }
+
+
+function generar(){
+
+//Crear un objeto o instancia jsPDF
+var doc = new jsPDF();
+
+//Definir el tamaño de la letra
+doc.setFontSize(40);
+//Color del texto
+doc.setTextColor(9,7,121);
+doc.text(40, 20, "Conceptos basicos");
+doc.setTextColor(17, 122, 209); //Color en formato RGB
+doc.setFontSize(30);
+doc.text(50, 35, "Resultados del test"); //Ubicación, Texto
+doc.setTextColor(0,0,0);
+doc.setFontSize(10);
+doc.text(20, 50, "20 puntos. Muy bien. \r Todas tus respuestas son correctas");
+doc.text(20, 70, "15 puntos. Regular. \r Obtuviste 2 preguntas correctas");
+doc.text(20, 90, "0 puntos. \r Todas tus respuestas son incorrectas");
+
+//doc.addImage(imgData, 'JPEG', 10, 40, 180, 180);
+
+var string = doc.output('datauristring');
+
+$('iframe').attr('src', string);
+
+}
+</script>
+
+<body>
+    <div id="contiene">
+    <h1>Responde esta encuesta</h1>
+<div>
+    <form>
+    <ul>
+        <!-- Pregunta 1 -->
+        <li>¿Quien es el mejor jugador de basqurbol?</li>
+        <input type="radio" name="r1" id="r1" value="1"/> LeBron Raymone James.<br/>
+        <input type="radio" name="r1" id="r1" value="0"/>Michael Jeffrey Jordan.<br/>
+        <input type="radio" name="r1" id="r1" value="0"/>Kobe Bean Bryant..<br/>
+        <input type="radio" name="r1" id="r1" value="0"/>Wardell Stephen Curry II.<br/>
+        <!-- Preegunta 2 --> 
+        <li>¿Cuál es el nombre del equipo con mas campeonatos de la NBA?</li>
+        <input type="radio" name="r2" id="r2" value="0"/>Boston Celtics.<br/>
+        <input type="radio" name="r2" id="r2" value="1"/>Angeles Lakers<br/>
+        <input type="radio" name="r2" id="r2" value="0"/>Chicago Bulls<br/>
+        <input type="radio" name="r2" id="r2" value="0"/>Denver Nuggets<br/>
+        <!-- Pregunta 3 -->
+        <li>¿Cuántos jugadores están en el campo de juego por equipo durante un partido de baloncesto?</li>
+        <input type="radio" name="r3" id="r3" value="0"/>4<br/>
+        <input type="radio" name="r3" id="r3" value="0"/>7<br/>
+        <input type="radio" name="r3" id="r3" value="1"/>5<br/>
+        <input type="radio" name="r3" id="r3" value="0"/>6<br/>
+        <!-- Pregunta 4 -->
+        <li>¿Quién es conocido como "The King" en el mundo del baloncesto?</li>
+        <input type="radio" name="r4" id="r4" value="0"/>Kobe Bryant<br/>
+        <input type="radio" name="r4" id="r4" value="1"/>LeBron James<br/>
+        <input type="radio" name="r4" id="r4" value="0"/>Michael Jordan<br/>
+        <input type="radio" name="r4" id="r4" value="0"/>Shaquille O'Neal<br/>
+        <!-- Pregunta 5 -->
+        <li>¿En qué año se fundó la NBA (National Basketball Association)?</li>
+        <input type="radio" name="r5" id="r5" value="1"/>1946<br/>
+        <input type="radio" name="r5" id="r5" value="0"/>1955<br/>
+        <input type="radio" name="r5" id="r5" value="0"/>1967<br/>
+        <input type="radio" name="r5" id="r5" value="0"/>1979<br/>
+        <!-- Pregunta 6 -->
+        <li>¿Cuál es la altura oficial de un aro de baloncesto en la NBA?</li>
+        <input type="radio" name="r6" id="r6" value="1"/>10 pies (3,05 metros)<br/>
+        <input type="radio" name="r6" id="r6" value="0"/>11 pies (3,35 metros)<br/>
+        <input type="radio" name="r6" id="r6" value="0"/>9 pies (2,74 metros)<br/>
+        <input type="radio" name="r6" id="r6" value="0"/>12 pies (3,66 metros)<br/>
+        <!-- Pregunta 7 -->
+        <li>¿Cuántos puntos vale un tiro de campo normal en baloncesto?</li>
+        <input type="radio" name="r7" id="r7" value="0"/>3 punto<br/>
+        <input type="radio" name="r7" id="r7" value="0"/>4 punto<br/>
+        <input type="radio" name="r7" id="r7" value="0"/>2 punto<br/>
+        <input type="radio" name="r7" id="r7" value="1"/>1 punto<br/>
+        <!-- Pregunta 8 -->
+        <li>¿Qué jugador de baloncesto es conocido por su habilidad excepcional en tiros de tres puntos?</li>
+        <input type="radio" name="r8" id="r8" value="0"/>Magic Johnson<br/>
+        <input type="radio" name="r8" id="r8" value="1"/>Stephen Curry<br/>
+        <input type="radio" name="r8" id="r8" value="0"/>Larry Bird<br/>
+        <input type="radio" name="r8" id="r8" value="0"/>Shaquille O'Neal<br/>
+        <!-- Pregunta 9-->
+        <li>Shaquille O'Neal</li>
+        <input type="radio" name="r9" id="r9" value="0"/>Michael Jordan<br/>
+        <input type="radio" name="r9" id="r9" value="0"/>Kareem Abdul-Jabbar<br/>
+        <input type="radio" name="r9" id="r9" value="0"/>Wilt Chamberlain<br/>
+        <input type="radio" name="r9" id="r9" value="1"/>LeBron James<br/>
+        <!-- Pregunta 10 -->
+        <li>¿Quién fue el primer jugador en la historia de la NBA en promediar un triple-doble durante una temporada regular completa?</li>
+        <input type="radio" name="r10" id="r10" value="0"/>Magic Johnson<br/>
+        <input type="radio" name="r10" id="r10" value="1"/>Oscar Robertson<br/>
+        <input type="radio" name="r10" id="r10" value="0"/>Russell Westbrook<br/>
+        <input type="radio" name="r10" id="r10" value="0"/>Jason Kidd<br/>
+
+    </ul>
+</form>
+</div>
+<input type="button" value="Calificar" onclick="califica()">
+<p></p>
+<p id="total">   </p>
+<p id="comentario">   </p>
+<input type="button" onclick="generar()" value="Ver resultados"/> <br/>
+<iframe frameborder="0" width="600" height="500"></iframe>
+</div>
+</body>
+</html>
