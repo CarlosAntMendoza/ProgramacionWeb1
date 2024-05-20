@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="Imagenes/icono.jpg" type="image/x-icon">
+    <title>Obtener totales del formulario</title>
+    <link rel="stylesheet" href="estilos.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="jspdf.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
+    <style>
+        .button-container {
+            text-align: center;
+        }
+
+        .button-container input[type="button"] {
+            margin: 0 10px; /* Ajusta el espacio entre los botones si lo necesitas */
+        }
+    
+    </style>
+    <style>
+        .message-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<script>
+    var total;
+    function califica() {
+        var total = 0;
+        //Evalua cada pregunta
+        for (var x = 1; x <= 4; x++) {
+            var res = 0;
+            var nom = "r" + x;
+            var resul = document.getElementsByName(nom);
+            for (var i = 0; i < resul.length; i++) {
+                if (resul[i].checked == true)
+                    res = parseInt(resul[i].value);
+            }
+            total = total + res;
+            document.getElementById("total").innerHTML = "Puntos obtenidos: " + total + " Puntos";
+        }
+        if (total == 50)
+            document.getElementById("comentario").innerHTML = "EXCELENTE";
+        else if (total == 25)
+            document.getElementById("comentario").innerHTML = "REGULAR";
+        else if (total <= 15)
+            document.getElementById("comentario").innerHTML = "REVISA LA INFORMACION";
+    }
+
+    function generar() {
+        // Crear un objeto o instancia jsPDF
+        var doc = new jsPDF();
+
+        // Definir el tamaño de la letra
+        doc.setFontSize(12);
+
+        // Definir el contenido del PDF
+        var contenidoPDF = "Puntos obtenidos: " + total + " Puntos\n";
+        contenidoPDF += "Comentario: " + document.getElementById("comentario").innerHTML;
+
+        // Agregar el contenido al PDF
+        doc.text(20, 20, contenidoPDF);
+
+        // Obtener el contenido en formato base64
+        var string = doc.output('datauristring');
+
+        // Mostrar el PDF en el iframe
+        $('iframe').attr('src', string);
+    }
+</script>
+
+<body>
+    <script type="text/javascript">
+        var vsid = "si2705898767dbc";
+        (function() {
+        var vsjs = document.createElement('script'); vsjs.type = 'text/javascript'; vsjs.async = true; vsjs.setAttribute('defer', 'defer');
+        vsjs.src = 'https://www.virtualspirits.com/vsa/chat.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(vsjs, s);
+        })();
+    </script>
+    <header>
+        <nav>
+          <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="informacion.html">INFORMACIÓN</a></li>
+        <li><a href="impacto.html">IMPACTO</a></li>
+        <li><a href="situacion_actual.html">SITUACIÓN ACTUAL</a></li>
+        <li><a href="vision_futuro.html">VISIÓN A FUTURO</a></li>
+        <li><a href="preguntas.html">CONTENIDO</a></li>
+        <li><a href="contacto.html">CONTACTO</a></li>
+        </ul>
+        </nav>
+      </header>
+      <section>
+        <div id="contiene">
+            <h2>Responde el formulario:</h2>
+        <div>
+            <form>
+                <ul>
+            
+                    <li><strong>Pregunta 1: ¿Qué es la inteligencia artificial generativa?</strong></li>
+                    <input type="radio" name="r1" id="r1" value="5"/>Genera contenido nuevo y original<br/>
+                    <input type="radio" name="r1" id="r1" value="0"/>Clasifica datos existentes<br/>
+                    <input type="radio" name="r1" id="r1" value="0"/>Optimiza procesos de negocio<br/>
+                    <input type="radio" name="r1" id="r1" value="0"/>Analiza tendencias de mercado<br/>
+                    
+                    <li><strong>Pregunta 2: ¿Cuál es el objetivo principal de la inteligencia artificial generativa?</strong></li>
+                    <input type="radio" name="r2" id="r2" value="5"/>Crear contenido nuevo y de alta calidad<br/>
+                    <input type="radio" name="r2" id="r2" value="0"/>Automatizar procesos administrativos<br/>
+                    <input type="radio" name="r2" id="r2" value="0"/>Mejorar la seguridad informática<br/>
+                    <input type="radio" name="r2" id="r2" value="0"/>Predecir comportamientos del consumidor<br/>
+            
+                    <li><strong>Pregunta 3: ¿Cuál es la diferencia entre IA generativa y IA discriminativa?</strong></li>
+                    <input type="radio" name="r3" id="r3" value="5"/>Genera datos nuevos vs. Clasifica datos existentes<br/>
+                    <input type="radio" name="r3" id="r3" value="0"/>Optimiza procesos vs. Analiza tendencias<br/>
+                    <input type="radio" name="r3" id="r3" value="0"/>Crea contenido vs. Automatiza tareas<br/>
+                    <input type="radio" name="r3" id="r3" value="0"/>Imita comportamientos vs. Mejora la productividad<br/>
+            
+                    <li><strong>Pregunta 4: ¿Cuáles son algunos ejemplos de aplicaciones de IA generativa?</strong></li>
+                    <input type="radio" name="r4" id="r4" value="5"/>Generación de arte, música, texto, etc.<br/>
+                    <input type="radio" name="r4" id="r4" value="0"/>Análisis de datos financieros<br/>
+                    <input type="radio" name="r4" id="r4" value="0"/>Detección de fraudes<br/>
+                    <input type="radio" name="r4" id="r4" value="0"/>Optimización de cadena de suministro<br/>
+            
+                    <li><strong>Pregunta 5: ¿Qué tipos de modelos se utilizan comúnmente en la inteligencia artificial generativa?</strong></li>
+                    <input type="radio" name="r5" id="r5" value="5"/>Redes neuronales generativas, recurrentes, convolucionales, modelos de lenguaje, etc.<br/>
+                    <input type="radio" name="r5" id="r5" value="0"/>Árboles de decisión<br/>
+                    <input type="radio" name="r5" id="r5" value="0"/>Regresiones lineales<br/>
+                    <input type="radio" name="r5" id="r5" value="0"/>SVM (Support Vector Machines)<br/>
+            
+                    <li><strong>Pregunta 6: ¿Qué es una red neuronal generativa adversarial (GAN)?</strong></li>
+                    <input type="radio" name="r6" id="r6" value="5"/>Un modelo que consta de dos redes que compiten entre sí para mejorar la generación de datos<br/>
+                    <input type="radio" name="r6" id="r6" value="0"/>Un modelo que clasifica datos existentes<br/>
+                    <input type="radio" name="r6" id="r6" value="0"/>Un modelo que optimiza procesos de negocio<br/>
+                    <input type="radio" name="r6" id="r6" value="0"/>Un modelo que analiza tendencias de mercado<br/>
+            
+                    <li><strong>Pregunta 7: ¿Cómo se evalúa la calidad de las generaciones en la inteligencia artificial generativa?</strong></li>
+                    <input type="radio" name="r7" id="r7" value="5"/>Mediante métricas objetivas y evaluación humana de coherencia, originalidad y relevancia<br/>
+                    <input type="radio" name="r7" id="r7" value="0"/>Exclusivamente mediante métricas objetivas<br/>
+                    <input type="radio" name="r7" id="r7" value="0"/>Exclusivamente mediante evaluación humana<br/>
+                    <input type="radio" name="r7" id="r7" value="0"/>Mediante análisis de tendencias del mercado<br/>
+            
+                    <li><strong>Pregunta 8: ¿Cuáles son algunos desafíos en el desarrollo de modelos de IA generativa?</strong></li>
+                    <input type="radio" name="r8" id="r8" value="5"/>Generar contenido coherente y realista, evitar sesgos y requerir grandes cantidades de datos de entrenamiento<br/>
+                    <input type="radio" name="r8" id="r8" value="0"/>Optimizar procesos de negocio y analizar tendencias del mercado<br/>
+                    <input type="radio" name="r8" id="r8" value="0"/>Clasificar datos y automatizar tareas<br/>
+                    <input type="radio" name="r8" id="r8" value="0"/>Mejorar la seguridad informática y predecir comportamientos del consumidor<br/>
+            
+                    <li><strong>Pregunta 9:¿Qué papel juega el aprendizaje no supervisado en la inteligencia artificial generativa?</strong></li>
+                    <input type="radio" name="r9" id="r9" value="5"/>Permite a los modelos aprender patrones y estructuras subyacentes en los datos sin etiquetas explícitas<br/>
+                    <input type="radio" name="r9" id="r9" value="0"/>No tiene ningún papel en la inteligencia artificial generativa<br/>
+                    <input type="radio" name="r9" id="r9" value="0"/>Se utiliza para clasificar datos existentes<br/>
+                    <input type="radio" name="r9" id="r9" value="0"/>Se utiliza para predecir comportamientos del consumidor<br/>
+            
+                    <li><strong>Pregunta 10: ¿Cuál es el potencial impacto de la inteligencia artificial generativa en diferentes industrias?</strong></li>
+                    <input type="radio" name="r10" id="r10" value="5"/>Automatización de tareas creativas, personalización de experiencias de usuario, mejora de la eficiencia en la producción de arte y medios, impulso de la innovación, entre otros<br/>
+                    <input type="radio" name="r10" id="r10" value="0"/>Análisis de datos financieros y optimización de procesos industriales<br/>
+                    <input type="radio" name="r10" id="r10" value="0"/>Detección de fraudes y mejora de la seguridad informática<br/>
+                    <input type="radio" name="r10" id="r10" value="0"/>Predicción de tendencias del mercado y previsión de demanda de productos<br/>
+            
+                </ul>
+            </form>	
+        </div>
+        <div class="button-container">
+            <input type="button" value="Calificar" onclick="califica()">
+            <input type="button" onclick="generar()" value="Ver resultados"/>
+        </div>
+        <div class="message-container">
+            <p id="total"></p>
+            <p id="comentario"></p>
+        </div>
+        <iframe id="pdfFrame" frameborder="0" width="600" height="500"></iframe>
+    </div>
+      </section>
+</body>
+<body>
+    <img src="Imagenes/images-removebg-preview.png" alt="Imagen estática" class="static-image">
+  </body>
+  <footer>
+    <h1>Redes Sociales</h1>
+      <div class="social-links">
+        <a href="https://www.facebook.com/tusitio" target="_blank">Facebook</a>
+        <a href="https://www.twitter.com/tusitio" target="_blank">Twitter</a>
+        <a href="https://www.instagram.com/tusitio" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/tusitio" target="_blank">LinkedIn</a>
+        <a href="https://www.youtube.com/tusitio" target="_blank">YouTube</a>
+      </div>
+  </footer>
+</html>

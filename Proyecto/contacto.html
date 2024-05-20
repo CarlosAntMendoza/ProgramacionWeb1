@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="Imagenes/icono.jpg" type="image/x-icon">
+    <title>Obtener totales del formulario</title>
+    <link rel="stylesheet" href="estilos.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="jspdf.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
+    <style>
+        .button-container {
+            text-align: center;
+        }
+
+        .button-container input[type="button"] {
+            margin: 0 10px; /* Ajusta el espacio entre los botones si lo necesitas */
+        }
+    </style>
+    <style>
+        .message-container {
+            text-align: center;
+        }
+    </style>
+        <script src="Block.js"></script>
+
+</head>
+<body>
+    <script type="text/javascript">
+        var vsid = "si2705898767dbc";
+        (function() {
+        var vsjs = document.createElement('script'); vsjs.type = 'text/javascript'; vsjs.async = true; vsjs.setAttribute('defer', 'defer');
+        vsjs.src = 'https://www.virtualspirits.com/vsa/chat.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(vsjs, s);
+        })();
+    </script>
+    <header>
+        <nav>
+          <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="informacion.html">INFORMACIÓN</a></li>
+        <li><a href="impacto.html">IMPACTO</a></li>
+        <li><a href="situacion_actual.html">SITUACIÓN ACTUAL</a></li>
+        <li><a href="vision_futuro.html">VISIÓN A FUTURO</a></li>
+        <li><a href="preguntas.html">CONTENIDO</a></li>
+        <li><a href="formulario.html">EVALUACION</a></li>
+        </ul>
+        </nav>
+      </header>
+      <section>
+        <form>
+            <h2>Contacto</h2>
+            <div class="input-group">
+            <label for="name">Nombre</label><br>
+            <input type="text" name="name" id="name" placeholder="Nombre" >
+            <br><label for="phone">Telefono</label><br>
+            <input type="tel" name="phone" id="phone" placeholder="Telefono" >
+            <br><label for="email">Email</label><br>
+            <input type="email" name="email" id="email" placeholder="Email">
+            <br><label for="message">Mensaje</label><br>
+            <textarea name="message" id="message" cols="30" rows="5" placeholder="Mensaje"></textarea>
+            <div class="form-txt">
+            <br><a href="#">Politica de privacidad</a>
+            <a href="#">Terminos y condiciones</a><br><br>
+            </div>
+            <input class="btn" type="submit" value="Enviar" ><br>
+            </div>
+            </form>
+      </section>
+      <section>
+        <div id="container">
+            <div class="clear"></div>
+    <h1>BLOG</h1>
+            <section id="cajaformulario">
+                <form name="formulario">
+                    <p>USUARIO:<br><input type="text" name="clave" id="clave"></p>
+                    <p>COMENTARIO:<br><textarea name="text" id="texto"></textarea></p>
+                    <p><input type="button" name="guardar" id="guardar"
+                    value="Guardar"></p>
+                    <p><input type="button" name="eliminar" id="eliminar"
+                    value="Borrar datos" onclick="elimina()"></p>
+                </form>
+            </section>
+    
+            <section id="cajadatos">
+                Aún no registras información
+            </section>
+    
+            <div class="clear"></div>
+        </div>
+      </section>
+</body>
+<body>
+    <img src="Imagenes/images-removebg-preview.png" alt="Imagen estática" class="static-image">
+  </body>
+  <footer>
+    <h1>Redes Sociales</h1>
+      <div class="social-links">
+        <a href="https://www.facebook.com/tusitio" target="_blank">Facebook</a>
+        <a href="https://www.twitter.com/tusitio" target="_blank">Twitter</a>
+        <a href="https://www.instagram.com/tusitio" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/tusitio" target="_blank">LinkedIn</a>
+        <a href="https://www.youtube.com/tusitio" target="_blank">YouTube</a>
+      </div>
+  </footer>
+</html>
